@@ -59,5 +59,20 @@ namespace InnoApi.Controllers
             return Ok(userModel);
 
         }
+
+        [HttpDelete]
+        [Route("{id}")]
+        public IActionResult Delete([FromRoute] int id)
+        {
+            var userModel = _context.Users.FirstOrDefault(x =>x.ID == id);
+            if (userModel == null)
+            {
+                return NotFound();
+            }
+
+            _context.Users.Remove(userModel);
+            _context.SaveChanges();
+            return NoContent(); 
+        }
     }
 }

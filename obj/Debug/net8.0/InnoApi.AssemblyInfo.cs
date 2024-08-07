@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("InnoApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+66f987887da5cb75865104ff244d17476b6b6bdd")]
 [assembly: System.Reflection.AssemblyProductAttribute("InnoApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("InnoApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

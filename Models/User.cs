@@ -2,8 +2,10 @@
 {
     public class User
     {
-        public int userId { get; set; }
-        public string name { get; set; } = string.Empty;
-        public string password { get; set; } = string.Empty;
+        public int ID { get; set; }
+        public string ADI { get; set; } = string.Empty;
+        public string SOYADI { get; set; } = string.Empty;
+        public string KULLANICI_ADI { get; set; } = string.Empty;
+        public string SIFRE { get; set; } = string.Empty;
     }
 }

@@ -4,6 +4,7 @@ using InnoApi.Controllers;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace InnoApi.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240813141649_SeedRole")]
+    partial class SeedRole
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -148,13 +151,13 @@ namespace InnoApi.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "b9ca0fe4-87ad-44e3-bd4c-12394dbb9338",
+                            Id = "472bcf36-dbe1-4632-8089-5a4c7c3fec94",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "b641a511-a7b9-4f74-8660-9eea2c324dae",
+                            Id = "274e942c-6a71-4f8d-bba8-c8b8a83dc836",
                             Name = "User",
                             NormalizedName = "USER"
                         });

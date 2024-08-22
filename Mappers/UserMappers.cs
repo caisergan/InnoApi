@@ -16,7 +16,6 @@ namespace InnoApi.Mappers
                 ADI = userModel.ADI,
                 SOYADI = userModel.SOYADI,
                 KULLANICI_ADI = userModel.KULLANICI_ADI,
-                SIFRE = userModel.SIFRE
             };
         }
         public static User ToUserFromCreateDTO(this CreateUserRequestDto userDto)
@@ -27,7 +26,6 @@ namespace InnoApi.Mappers
                 ADI = userDto.ADI,
                 SOYADI = userDto.SOYADI,
                 KULLANICI_ADI = userDto.KULLANICI_ADI,
-                SIFRE = userDto.SIFRE
             };
         }
 

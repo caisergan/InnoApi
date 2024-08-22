@@ -53,7 +53,6 @@ namespace InnoApi.Controllers
             userModel.ADI = updateDto.ADI;
             userModel.SOYADI = updateDto.SOYADI;
             userModel.KULLANICI_ADI = updateDto.KULLANICI_ADI;
-            userModel.SIFRE = updateDto.SIFRE;
 
             _context.SaveChanges();
             return Ok(userModel);

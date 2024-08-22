@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace InnoApi.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240813141649_SeedRole")]
+    [Migration("20240821120518_SeedRole")]
     partial class SeedRole
     {
         /// <inheritdoc />
@@ -25,7 +25,7 @@ namespace InnoApi.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("InnoApi.Models.AppUser", b =>
+            modelBuilder.Entity("InnoApi.Models.AppUserModel", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
@@ -77,9 +77,6 @@ namespace InnoApi.Migrations
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
-                    b.Property<string>("Username")
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("Id");
 
                     b.HasIndex("NormalizedEmail")
@@ -106,10 +103,6 @@ namespace InnoApi.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("KULLANICI_ADI")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("SIFRE")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -151,13 +144,13 @@ namespace InnoApi.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "472bcf36-dbe1-4632-8089-5a4c7c3fec94",
+                            Id = "26ceba16-d7e2-4692-8bf7-95f297f303ee",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "274e942c-6a71-4f8d-bba8-c8b8a83dc836",
+                            Id = "8698f59e-89b2-4072-bbb6-3eade3958a35",
                             Name = "User",
                             NormalizedName = "USER"
                         });
@@ -280,7 +273,7 @@ namespace InnoApi.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("InnoApi.Models.AppUser", null)
+                    b.HasOne("InnoApi.Models.AppUserModel", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -289,7 +282,7 @@ namespace InnoApi.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("InnoApi.Models.AppUser", null)
+                    b.HasOne("InnoApi.Models.AppUserModel", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -304,7 +297,7 @@ namespace InnoApi.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("InnoApi.Models.AppUser", null)
+                    b.HasOne("InnoApi.Models.AppUserModel", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -313,7 +306,7 @@ namespace InnoApi.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("InnoApi.Models.AppUser", null)
+                    b.HasOne("InnoApi.Models.AppUserModel", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)

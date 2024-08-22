@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace InnoApi.Migrations
 {
     /// <inheritdoc />
-    public partial class SeedRole : Migration
+    public partial class init : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -32,7 +32,7 @@ namespace InnoApi.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    Username = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     PasswordHash = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -50,6 +50,21 @@ namespace InnoApi.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Users",
+                columns: table => new
+                {
+                    ID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ADI = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    SOYADI = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    KULLANICI_ADI = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Users", x => x.ID);
                 });
 
             migrationBuilder.CreateTable(
@@ -163,8 +178,8 @@ namespace InnoApi.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "274e942c-6a71-4f8d-bba8-c8b8a83dc836", null, "User", "USER" },
-                    { "472bcf36-dbe1-4632-8089-5a4c7c3fec94", null, "Admin", "ADMIN" }
+                    { "6b6bad22-ffa5-422d-b2e6-71c524621d06", null, "Admin", "ADMIN" },
+                    { "f8e7588d-c59a-4226-bb2f-ee98cdec8688", null, "User", "USER" }
                 });
 
             migrationBuilder.CreateIndex(
@@ -224,6 +239,9 @@ namespace InnoApi.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
+
+            migrationBuilder.DropTable(
+                name: "Users");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
